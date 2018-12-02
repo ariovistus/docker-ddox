@@ -1,8 +1,11 @@
-from najamkhn/dmd
+from dlanguage/dmd
 
 run apt-get update
 run apt-get install -y libssl-dev
 run apt-get install -y libevent-dev
-run wget https://github.com/rejectedsoftware/ddox/archive/v0.10.2.tar.gz
-run tar -xf v0.10.2.tar.gz
-run cd ddox-0.10.2 && dub build && cp ddox /usr/bin
+run apt-get install -y rsync
+run mkdir /root/tmp && cd /root/tmp && dub init -n && dub build -b ddox
+run rm -rf /root/tmp
+env PATH="$PATH:/root/.dub/packages/ddox-0.16.12/ddox/"
+
+
